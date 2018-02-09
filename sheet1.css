@@ -1,0 +1,46 @@
+.new_div {
+  height: 170px;
+  width:250px; 
+  overflow: auto;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
+  word-wrap: break-word;
+  margin: 0 auto;
+}
+.enter_details{
+   width: 100%;
+   padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.Heads{
+  text-transform: uppercase;
+  text-align: center;
+  
+  font-size: 20px;
+  font-family: Courier New;
+}
+.heading{
+  height: 45px;
+  color: white;
+  background-color: #293975;
+}
+.editable{
+  font-family: Courier New;
+}
+.close_bt{
+  background: #e0e7ff;
+  border: none;
+}
+.edit_bt{
+  background: #e0e7ff;
+  border: none;
+}
+.h_line{
+  border-color: black;
+}

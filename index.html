@@ -1,0 +1,545 @@
+<script type="text/javascript">
+/*  function myFunction1(){
+    if( document.getElementById("myDropdown").style.display=="none") 
+      document.getElementById("myDropdown").style.display="block";
+    else
+       document.getElementById("myDropdown").style.display="none";
+  }*/
+  function add_1(){
+    document.getElementById("tf1").style.display="block";
+    document.getElementById("add_master").style.display="block";
+    document.getElementById("cancel_master").style.display="block";
+    document.getElementById("add1").style.display="none";
+  }
+  function cancel_master(){
+    document.getElementById("tf1").style.display="none";
+    document.getElementById("add_master").style.display="none";
+     document.getElementById("cancel_master").style.display="none";
+     document.getElementById("add1").style.display="block";
+     document.getElementById("tf1").value="";
+  }
+
+
+
+  function add_2(){
+    document.getElementById("tf2").style.display="block";
+    document.getElementById("add_todo").style.display="block";
+    document.getElementById("cancel_todo").style.display="block";
+    document.getElementById("add2").style.display="none";
+  }
+  function cancel_todo(){
+    document.getElementById("tf2").style.display="none";
+    document.getElementById("add_todo").style.display="none";
+     document.getElementById("cancel_todo").style.display="none";
+     document.getElementById("add2").style.display="block";
+     document.getElementById("tf2").value="";
+  }
+
+
+  function add_3(){
+    document.getElementById("tf3").style.display="block";
+    document.getElementById("add_progress").style.display="block";
+    document.getElementById("cancel_progress").style.display="block";
+    document.getElementById("add3").style.display="none";
+  }
+  function cancel_progress(){
+    document.getElementById("tf3").style.display="none";
+    document.getElementById("add_progress").style.display="none";
+     document.getElementById("cancel_progress").style.display="none";
+     document.getElementById("add3").style.display="block";
+     document.getElementById("tf3").value="";
+  }
+
+
+
+  function add_4(){
+    document.getElementById("tf4").style.display="block";
+    document.getElementById("add_Done").style.display="block";
+    document.getElementById("cancel_Done").style.display="block";
+    document.getElementById("add4").style.display="none";
+  }
+  function cancel_Done(){
+    document.getElementById("tf4").style.display="none";
+    document.getElementById("add_Done").style.display="none";
+     document.getElementById("cancel_Done").style.display="none";
+     document.getElementById("add4").style.display="block";
+     document.getElementById("tf4").value="";
+  }
+
+
+
+
+  $value1=0;
+  newId=0;
+  function add_card1(){
+    var details=document.getElementById("tf1").value;
+    if (document.getElementById("tf1").value === '') 
+    {
+      alert("ADD INFORMATION ABOUT YOUR PROJECT");
+    }
+    else
+    {
+    $value1++;
+   // document.getElementById("count1").innerHTML = $value1;
+    //var outer_node = document.createElement("DIV");
+    //outer_node.className="outer_node";
+   
+    var node = document.createElement("DIV");
+    node.className = "new_div editable";
+    node.style.background="#e0e7ff";
+    node.contentEditable="false";
+
+    newId++;
+    
+    var textnode = document.createElement("DIV");
+    textnode.innerHTML=details;
+    textnode.className="editable";
+    textnode.id="textnode"+newId;
+    textnode.contentEditable="false";
+    node.appendChild(textnode);
+
+    //outer_node.appendChild(node)
+
+   var h_line=document.createElement("hr");
+   h_line.style.color="black";
+   node.appendChild(h_line);
+
+    var b=document.createElement("BUTTON");
+    b.className="glyphicon glyphicon-trash btn-md close_bt";
+   // b.innerHTML="Close Card";
+    
+    b.id="new_button"+newId;
+    b.contentEditable="false";
+
+    new_line=document.createElement("br");
+    new_line.id="new_line"+newId;
+
+    node.appendChild(b);
+    
+    var b1=document.createElement("BUTTON");
+    b1.className="glyphicon glyphicon-edit btn-md edit_bt ";
+    //b1.innerHTML="Edit Card";
+    b1.id="edit_button"+newId;
+    b1.contentEditable="false";
+    node.appendChild(b1);
+    b1.onclick=function(){
+        var get_id=this.id;
+        var contenteditable = document.getElementById("textnode"+get_id.substring(11)).contentEditable;
+        if(contenteditable == 'false'){
+          //b1.innerHTML="Save Card";
+          document.getElementById("textnode"+get_id.substring(11)).contentEditable = true;
+          b1.className="glyphicon glyphicon-floppy-saved btn-md edit_bt ";
+          //document.getElementById(get_id).contentEditable=false;
+          //document.getElementById("new_button"+get_id.substring(11)).contentEditable=false;
+          //document.getElementById("new_line"+get_id.substring(11)).contentEditable=false;
+         }else{
+          b1.className="glyphicon glyphicon-edit btn-md edit_bt ";
+          document.getElementById("textnode"+get_id.substring(11)).contentEditable = false;
+         }
+    }
+
+    node.id="new_div"+newId;
+
+    document.getElementById("list1").appendChild(node);
+    document.getElementById("list1").appendChild(new_line);
+
+    document.getElementById("tf1").value="";
+
+    document.getElementById("tf1").style.display="none";
+    document.getElementById("add_master").style.display="none";
+    document.getElementById("cancel_master").style.display="none";
+    document.getElementById("add1").style.display="block";
+
+    b.onclick=function(){
+      var get_id=this.id;
+      document.getElementById("new_div"+get_id.substring(10)).remove();
+      document.getElementById("new_line"+get_id.substring(10)).remove();
+      newId--;
+      value1--;
+      //document.getElementById("count1").innerHTML = value1;
+    };
+    //node.appendChild(document.createElement("br"));
+     
+    }
+  }
+
+
+
+
+  $value2=0;
+  function add_card2(){
+    var details=document.getElementById("tf2").value;
+    if (document.getElementById("tf2").value === '') 
+    {
+      alert("ADD INFORMATION ABOUT YOUR PROJECT");
+    }
+    else
+    {
+    $value2++;
+   // document.getElementById("count2").innerHTML = $value1;
+    //var outer_node = document.createElement("DIV");
+    //outer_node.className="outer_node";
+   
+    var node = document.createElement("DIV");
+    node.className = "new_div editable";
+    node.contentEditable="false";
+    node.style.background="#e0e7ff";
+    
+   newId++;
+    
+    var textnode = document.createElement("DIV");
+    textnode.innerHTML=details;
+    textnode.className="editable";
+    textnode.id="textnode"+newId;
+    textnode.contentEditable="false";
+    node.appendChild(textnode);
+
+    //outer_node.appendChild(node)
+
+    var h_line=document.createElement("hr");
+    node.appendChild(h_line);
+
+    var b=document.createElement("BUTTON");
+    b.className="glyphicon glyphicon-trash btn-md close_bt";
+    //b.innerHTML="Close Card";
+    //newId++;
+    b.id="new_button"+newId;
+    b.contentEditable="false";
+
+    new_line=document.createElement("br");
+    new_line.id="new_line"+newId;
+
+    node.appendChild(b);
+    
+    var b1=document.createElement("BUTTON");
+    b1.className="glyphicon glyphicon-edit btn-md edit_bt";
+   // b1.innerHTML="Edit Card";
+    b1.id="edit_button"+newId;
+    b1.contentEditable="false";
+    node.appendChild(b1);
+    b1.onclick=function(){
+        var get_id=this.id;
+        var contenteditable = document.getElementById("textnode"+get_id.substring(11)).contentEditable;
+        if(contenteditable == 'false'){
+         // b1.innerHTML="Save Card";
+          document.getElementById("textnode"+get_id.substring(11)).contentEditable = true;
+          b1.className="glyphicon glyphicon-floppy-saved btn-md edit_bt ";
+         //new_line.contentEditable="false";
+          ///b.contentEditable="false";
+          //b1.contentEditable="false";
+         }else{
+         // b1.innerHTML="Edit Card";
+          b1.className="glyphicon glyphicon-edit btn-md edit_bt ";
+          document.getElementById("textnode"+get_id.substring(11)).contentEditable = false;
+         }
+    }
+
+    node.id="new_div"+newId;
+
+    document.getElementById("list2").appendChild(node);
+    document.getElementById("list2").appendChild(new_line);
+
+    document.getElementById("tf2").value="";
+
+    document.getElementById("tf2").style.display="none";
+    document.getElementById("add_todo").style.display="none";
+    document.getElementById("cancel_todo").style.display="none";
+    document.getElementById("add2").style.display="block";
+
+
+    b.onclick=function(){
+      var get_id=this.id;
+      document.getElementById("new_div"+get_id.substring(10)).remove();
+      document.getElementById("new_line"+get_id.substring(10)).remove();
+      newId--;
+      value2--;
+      //document.getElementById("count1").innerHTML = value1;
+    };
+    //node.appendChild(document.createElement("br"));  
+    }
+  }
+
+
+
+   $value3=0;
+  function add_card3(){
+   var details=document.getElementById("tf3").value;
+    if (document.getElementById("tf3").value === '') 
+    {
+      alert("ADD INFORMATION ABOUT YOUR PROJECT");
+    }
+    else
+    {
+    $value3++;
+    //document.getElementById("count3").innerHTML = $value3;
+    //var outer_node = document.createElement("DIV");
+    //outer_node.className="outer_node";
+   
+    var node = document.createElement("DIV");
+    node.className = "new_div editable";
+    node.contentEditable="false";
+    node.style.background="#e0e7ff";
+    newId++;
+    
+    var textnode = document.createElement("DIV");
+    textnode.innerHTML=details;
+    textnode.className="editable";
+    textnode.id="textnode"+newId;
+    textnode.contentEditable="false";
+    node.appendChild(textnode);
+
+    //outer_node.appendChild(node)
+
+    var h_line=document.createElement("hr");
+    node.appendChild(h_line);
+
+    var b=document.createElement("BUTTON");
+    b.className="glyphicon glyphicon-trash btn-md close_bt";
+    //b.innerHTML="Close Card";
+    
+    b.id="new_button"+newId;
+    b.contentEditable="false";
+
+    new_line=document.createElement("br");
+    new_line.id="new_line"+newId;
+
+    node.appendChild(b);
+    
+    var b1=document.createElement("BUTTON");
+    b1.className="glyphicon glyphicon-edit btn-md edit_bt";
+    //b1.innerHTML="Edit Card";
+    b1.id="edit_button"+newId;
+    b1.contentEditable="false";
+    node.appendChild(b1);
+    b1.onclick=function(){
+        var get_id=this.id;
+        var contenteditable = document.getElementById("textnode"+get_id.substring(11)).contentEditable;
+        if(contenteditable == 'false'){
+          //b1.innerHTML="Save Card";
+          document.getElementById("textnode"+get_id.substring(11)).contentEditable = true;
+          b1.className="glyphicon glyphicon-floppy-saved btn-md edit_bt ";
+          //document.getElementById(get_id).contentEditable=false;
+          //document.getElementById("new_button"+get_id.substring(11)).contentEditable=false;
+          //document.getElementById("new_line"+get_id.substring(11)).contentEditable=false;
+         }else{
+          b1.className="glyphicon glyphicon-edit btn-md edit_bt ";
+          document.getElementById("textnode"+get_id.substring(11)).contentEditable = false;
+         }
+    }
+
+    node.id="new_div"+newId;
+
+    document.getElementById("list3").appendChild(node);
+    document.getElementById("list3").appendChild(new_line);
+
+    document.getElementById("tf3").value="";
+
+    document.getElementById("tf3").style.display="none";
+    document.getElementById("add_progress").style.display="none";
+    document.getElementById("cancel_progress").style.display="none";
+    document.getElementById("add3").style.display="block";
+
+
+    b.onclick=function(){
+      var get_id=this.id;
+      document.getElementById("new_div"+get_id.substring(10)).remove();
+      document.getElementById("new_line"+get_id.substring(10)).remove();
+      newId--;
+      value3--;
+      //document.getElementById("count1").innerHTML = value1;
+    };
+    //node.appendChild(document.createElement("br"));
+     
+    }
+  }
+
+
+
+
+   $value4=0;
+  function add_card4(){
+    var details=document.getElementById("tf4").value;
+    if (document.getElementById("tf4").value === '') 
+    {
+      alert("ADD INFORMATION ABOUT YOUR PROJECT");
+    }
+    else
+    {
+    $value4++;
+    //document.getElementById("count4").innerHTML = $value4;
+    //var outer_node = document.createElement("DIV");
+    //outer_node.className="outer_node";
+   
+    var node = document.createElement("DIV");
+    node.className = "new_div editable";
+    node.contentEditable="false";
+    node.style.background="#e0e7ff";
+    newId++;
+    
+    var textnode = document.createElement("DIV");
+    textnode.innerHTML=details;
+    textnode.className="editable";
+    textnode.id="textnode"+newId;
+    textnode.contentEditable="false";
+    node.appendChild(textnode);
+
+    //outer_node.appendChild(node)
+
+    var h_line=document.createElement("hr");
+    node.appendChild(h_line);
+
+    var b=document.createElement("BUTTON");
+    b.className="glyphicon glyphicon-trash btn-md close_bt";
+    //b.innerHTML="Close Card";
+    
+    b.id="new_button"+newId;
+    b.contentEditable="false";
+
+    new_line=document.createElement("br");
+    new_line.id="new_line"+newId;
+
+    node.appendChild(b);
+    
+    var b1=document.createElement("BUTTON");
+    b1.className="glyphicon glyphicon-edit btn-md edit_bt";
+    //b1.innerHTML="Edit Card";
+    b1.id="edit_button"+newId;
+    b1.contentEditable="false";
+    node.appendChild(b1);
+    b1.onclick=function(){
+        var get_id=this.id;
+        var contenteditable = document.getElementById("textnode"+get_id.substring(11)).contentEditable;
+        if(contenteditable == 'false'){
+          b1.className="glyphicon glyphicon-floppy-saved btn-md edit_bt ";
+          document.getElementById("textnode"+get_id.substring(11)).contentEditable = true;
+          //document.getElementById(get_id).contentEditable=false;
+          //document.getElementById("new_button"+get_id.substring(11)).contentEditable=false;
+          //document.getElementById("new_line"+get_id.substring(11)).contentEditable=false;
+         }else{
+          b1.className="glyphicon glyphicon-edit btn-md edit_bt ";
+          document.getElementById("textnode"+get_id.substring(11)).contentEditable = false;
+         }
+    }
+
+    node.id="new_div"+newId;
+
+    document.getElementById("list4").appendChild(node);
+    document.getElementById("list4").appendChild(new_line);
+
+    document.getElementById("tf4").value="";
+
+    document.getElementById("tf4").style.display="none";
+    document.getElementById("add_Done").style.display="none";
+    document.getElementById("cancel_Done").style.display="none";
+    document.getElementById("add4").style.display="block";
+
+
+    b.onclick=function(){
+      var get_id=this.id;
+      document.getElementById("new_div"+get_id.substring(10)).remove();
+      document.getElementById("new_line"+get_id.substring(10)).remove();
+      newId--;
+      value4--;
+      //document.getElementById("count4").innerHTML = $value4;
+      //document.getElementById("count1").innerHTML = value1;
+    };
+    //node.appendChild(document.createElement("br"));
+     
+    }
+  }
+</script>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="sheet1.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body style="background: #e0e7ff">
+
+<nav class="navbar navbar-inverse" style="background: #e0e7ff;border: none; height: 100px">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <h3 style="position: absolute;left: 100px;color:#97a9ef ">All Projects</h3>
+    </div>
+    <div style="position: absolute;right: 100px">
+      <h3 style="float: left;color: #97a9ef"><button class="glyphicon glyphicon-plus btn-md" onclick="add_status()" style="background-color:#e0e7ff;border: none;"></button>Add Status</h3>
+      <h3 style="float: left;color: #97a9ef;padding-left: 20px"><button class="glyphicon glyphicon-trash btn-md" style="background-color:#e0e7ff;border: none;"></button>Delete All Cards</h3>
+    </div>
+  </div>
+</nav>
+
+<div class="container" >
+  <div class="row" id="row_set" >
+    <div class="col-sm-3" style="background: #e0e7ff ">
+      <div style="background-color: white">
+      <div class="heading panel panel-primary">
+      <p  class="Heads">MasterList</p>
+      <button class="glyphicon glyphicon-cog" onclick="myFunction1()" style="background-color: #293975;border: none;color: white;position: absolute;right: 15px"> </button>
+
+    </div>
+       <div id="list1"></div>
+      <div>
+  
+        <button id="add1" class="btn btn-success btn-sm" style="float: right;width: 100%" onclick="add_1()">ADD</button>
+        <textarea id="tf1" class="enter_details" placeholder="Enter details" style="word-wrap: break-word;display: none;"></textarea>
+        <button type="button" class="btn btn-success btn-sm" id="add_master" style="float: right;display: none;width: 50%" onclick="add_card1()">Add Card</button>
+        <button type="button" class="btn btn-success btn-sm" id="cancel_master" style="float: right;display: none; width: 50%" onclick="cancel_master()">Cancel Card</button>
+     </div>
+    </div>
+    </div>
+    <div class="col-sm-3" style="background: #e0e7ff ">
+      <div style="background-color: white">
+      <div class="heading panel panel-primary">
+      <p  class="Heads">ToDO</p>
+      <button class="glyphicon glyphicon-cog" style="background-color: #293975;border: none;color: white;position: absolute;right: 15px"></button>
+    </div>
+      <div id="list2"></div>
+      <div>
+         <button id="add2" class="btn btn-success btn-sm" style="float: right;width: 100%" onclick="add_2()">ADD</button>
+        <textarea id="tf2" class="enter_details" placeholder="Enter details" style="word-wrap: break-word;display: none"></textarea>
+      <button type="button" class="btn btn-success btn-sm" id="add_todo" style="float: right;display: none;width: 50%" onclick="add_card2()">Add Card</button>
+       <button type="button" class="btn btn-success btn-sm" id="cancel_todo" style="float: right;display: none; width: 50%" onclick="cancel_todo()">Cancel Card</button>
+    </div>
+  </div>
+    </div>
+    <div class="col-sm-3 " style="background: #e0e7ff ">
+      <div style="background-color: white">
+      <div class="heading panel panel-primary">
+      <p  class="Heads">InProgress</p>
+      <button class="glyphicon glyphicon-cog" style="background-color: #293975;border: none;color: white;position: absolute;right: 15px"></button>
+    </div>
+      <div id="list3"></div>
+      <div>
+         <button id="add3" class="btn btn-success btn-sm" style="float: right;width: 100%" onclick="add_3()">ADD</button>
+        <textarea id="tf3" class="enter_details" placeholder="Enter details" style="word-wrap: break-word;display: none"></textarea>
+       <button type="button" class="btn btn-success btn-sm" id="add_progress" style="float: right;display: none;width: 50%" onclick="add_card3()">Add Card</button>
+        <button type="button" class="btn btn-success btn-sm" id="cancel_progress" style="float: right;display: none; width: 50%" onclick="cancel_progress()">Cancel Card</button>
+    </div>
+  </div>
+    </div>
+    <div class="col-sm-3" style="background: #e0e7ff ">
+        <div style="background-color: white;" >
+            <div class="heading panel panel-primary he" >
+              <p class="Heads">Done</p>  
+              <button class="glyphicon glyphicon-cog" style="background-color: #293975;border: none ;color: white;position: absolute;right: 15px"></button>
+            </div>
+            <div id="list4"></div>
+            <div>
+               <button id="add4" class="btn btn-success btn-sm" style="float: right;width: 100%" onclick="add_4()">ADD</button>
+              <textarea id="tf4" class="enter_details" placeholder="Enter details" style="word-wrap: break-word;display: none"></textarea>
+              <button type="button" class="btn btn-success btn-sm" id="add_Done" style="float: right;display: none;width: 50%" onclick="add_card4()">Add Card</button>
+               <button type="button" class="btn btn-success btn-sm" id="cancel_Done" style="float: right;display: none; width: 50%" onclick="cancel_Done()">Cancel Card</button>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+</body>
+</html>
